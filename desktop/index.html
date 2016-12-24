@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style/stylesheet.css">
+<link rel="stylesheet" href="style/bootstrap.css">
+
+<head>
+    <title>Submit</title>
+
+</head>
+
+<body>
+    <div>
+        <webview id="scoreboard" class="scoreboard" src="https://www.github.com/"></webview>
+
+        <link rel="stylesheet" type="text/css" media="screen">
+        <div id="editor" class="editor">
+        </div>
+    </div>
+
+    <script src="resources/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8">
+</script>
+    <script>
+    var editor = ace.edit("editor");
+    document.getElementById('editor').style.fontSize='18px';
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+</script>
+
+    <div style="margin: 10px 0 0 10px;">
+        <script>window.$ = window.jQuery = require('jquery');</script>
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+        <script src="style/bootstrap.js" type="text/javascript" charset="utf-8">
+</script>
+        <script> $(function(){$(".dropdown-menu a").click(function(){
+                $(".btn:first-child").text($(this).text());
+                $(".btn:first-child").val($(this).text()); }); });
+        </script>
+
+        <div class="btn-group">
+            <div>
+            <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Language...
+  </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" onclick="">C</a>
+                <a class="dropdown-item" onclick="#">C++</a>
+                <a class="dropdown-item" onclick="#">Java</a>
+                <a class="dropdown-item" onclick="#">Python????</a>
+            </div>
+        </div>
+    </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Problem...
+  </button>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Problem1</a>
+                <a class="dropdown-item" href="#">Problem2</a>
+                <a class="dropdown-item" href="#">Problem3</a>
+                <a class="dropdown-item" href="#">Problem4</a>
+                <a class="dropdown-item" href="#">Problem5</a>
+            </div>
+        </div>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="#" style="display: inline-flex;">Run</button>
+        <button class="btn btn-success btn-lg" onclick="#" style="display: inline-flex;">Submit</button>
+    </div>
+    <div class="terminal">
+        <webview id="terminal" src="http://127.0.0.1:8088/terminal/"></webview>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "submit-desktop",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Ahmed Amine Boustani",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.4.13"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
