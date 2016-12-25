@@ -27,7 +27,7 @@
   color: white;
   font-family: Lucida;
   font-weight:bold;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .terminal {
