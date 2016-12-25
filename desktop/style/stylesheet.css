@@ -19,6 +19,13 @@
     min-height: 780px;
 }
 
+.compile {
+  margin: 10px 0 0 0;
+  width: 767px;
+  height: 100px;
+  background-color: blue;
+}
+
 .terminal {
     margin: 10px 0 0 0;
     width: 767px;

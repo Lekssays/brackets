@@ -6,7 +6,7 @@ Programming Contests Judging Tool
 
 Electron Documentation: https://github.com/electron/electron/tree/master/docs/api
   
-The app uses web-terminal to access teh terminal.  
+The app uses web-terminal to access the terminal.  
 To install use:
   sudo npm install web-terminal -g  
   
@@ -32,6 +32,6 @@ To manipulate the terminal check the docs: https://github.com/rabchev/web-termin
 - Get data from editor (editor.getValue(); // or session.getValue)  
 
 ## Dropdown Boxes
-- Make it possible to change button name  
+- separate the Dropdown selectors  
  
 

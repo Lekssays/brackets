@@ -14,8 +14,7 @@
 
         <link rel="stylesheet" type="text/css" media="screen">
         <div id="editor" class="editor">
-        </div>
-    </div>
+        </div></div>
 
     <script src="resources/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8">
 </script>
@@ -26,7 +25,7 @@
     editor.getSession().setMode("ace/mode/javascript");
 </script>
 
-    <div style="margin: 10px 0 0 10px;">
+    <div style="margin: 10px 0 0 0;">
         <script>window.$ = window.jQuery = require('jquery');</script>
         <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
         <script src="style/bootstrap.js" type="text/javascript" charset="utf-8">
@@ -69,6 +68,14 @@
     <div class="terminal">
         <webview id="terminal" src="http://127.0.0.1:8088/terminal/"></webview>
     </div>
+    <!--<div class="compile">
+        <script src="functions.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            document.writeln(compileC("hello"));
+            //document.writeln(JSON.stringify(compileC("hello")));
+            //compileC("hello");
+         </script>
+    </div>-->
 
 </body>
 
