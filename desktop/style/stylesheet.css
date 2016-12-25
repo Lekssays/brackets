@@ -20,10 +20,14 @@
 }
 
 .compile {
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
   width: 767px;
   height: 100px;
-  background-color: blue;
+  background-color: black;
+  color: white;
+  font-family: Lucida;
+  font-weight:bold;
+  overflow: scroll;
 }
 
 .terminal {

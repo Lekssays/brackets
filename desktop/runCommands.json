@@ -1,0 +1,14 @@
+{
+    "language": [{
+        "compile": {
+            "C": "gcc -o out",
+            "C++": "g++ -o out",
+            "java": "javac"
+        },
+        "run": {
+            "C": "./out",
+            "C++": "./out",
+            "java": "java"
+        }
+    }]
+}

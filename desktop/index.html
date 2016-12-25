@@ -65,17 +65,15 @@
         <button class="btn btn-primary btn-lg" onclick="#" style="display: inline-flex;">Run</button>
         <button class="btn btn-success btn-lg" onclick="#" style="display: inline-flex;">Submit</button>
     </div>
-    <div class="terminal">
-        <webview id="terminal" src="http://127.0.0.1:8088/terminal/"></webview>
-    </div>
-    <!--<div class="compile">
+    <!--<div class="terminal">
+        <webview id="terminal" src="http://127.0.0.1:8087/terminal/"></webview>
+    </div>-->
+    <div class="compile" id="comp">
         <script src="functions.js" type="text/javascript" charset="utf-8"></script>
         <script>
-            document.writeln(compileC("hello"));
-            //document.writeln(JSON.stringify(compileC("hello")));
-            //compileC("hello");
+            Compile();
          </script>
-    </div>-->
+    </div>
 
 </body>
 
