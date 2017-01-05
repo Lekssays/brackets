@@ -2,7 +2,7 @@
 /**
  * Common functions shared between team/public/jury interface
  *
- * Part of the DOMjudge Programming Contest Jury System and licenced
+ * Part of brackets is licenced
  * under the GNU GPL. See README and COPYING for details.
  */
 
@@ -463,7 +463,7 @@ function putClock() {
  */
 function putBracketsVersion() {
 	echo "<hr /><p>[brackets]/v1.0.0"  .
-		" at ".$_SERVER['SERVER_NAME']." Port ".$_SERVER['SERVER_PORT'].", page generated <span id=\"timecur\">" . strftime('%a %d %b %Y %T %Z') . "</span></p>\n";
+		" at ".$_SERVER['SERVER_NAME']." Port ".$_SERVER['SERVER_PORT'].", page generated <span id=\"timecur\">" . strftime('%a %d %b %Y %T %Z') . "</span> with love</p>\n";
 }
 
 /**
