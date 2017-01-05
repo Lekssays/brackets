@@ -2,7 +2,7 @@
 /**
  * Simple functions to start a form, add a field to a form, end a form.
  *
- * Part of the DOMjudge Programming Contest Jury System and licenced
+ * Part of brackets is licenced
  * under the GNU GPL. See README and COPYING for details.
  */
 
@@ -110,6 +110,7 @@ function matchSelect($val, $default)
  * usekeys: use the keys of the array as option value or not
  * multi: multiple values are selectable, set to integer to set vertical size
  */
+<<<<<<< HEAD
 function addSelect($name, $values, $default = null, $usekeys = false, $multi = false)
 {
 	$size = 5;
@@ -127,6 +128,11 @@ function addSelect($name, $values, $default = null, $usekeys = false, $multi = f
 	$ret .= "</select>\n";
 
 	return $ret;
+=======
+function putBracketsVersion() {
+	echo "<hr /><p>[brackets]/v1.0.0"  .
+		" at ".$_SERVER['SERVER_NAME']." Port ".$_SERVER['SERVER_PORT'].", page generated <span id=\"timecur\">" . strftime('%a %d %b %Y %T %Z') . "</span> with love</p>\n";
+>>>>>>> cab607fc242ae2c39598d6b31a5cdfc5b6c84df8
 }
 
 /**
