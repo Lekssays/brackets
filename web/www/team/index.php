@@ -3,6 +3,7 @@
  * Part of the DOMjudge Programming Contest Jury System and licenced
  * under the GNU GPL. See README and COPYING for details.
  */
+echo "<div class=\"ui container\"";
 
 require('init.php');
 $title = specialchars($teamdata['name']);
@@ -12,6 +13,8 @@ require(LIBWWWDIR . '/header.php');
 // cancel it when the user starts editing the submit form. This also
 // provides graceful degradation without javascript present.
 $refreshtime = 30;
+
+
 
 $submitted = @$_GET['submitted'];
 
@@ -40,35 +43,24 @@ if ( $fdata['cstarted'] || checkrole('jury') ) {
 
 echo "initReload(" . $refreshtime . ");\n";
 echo "// -->\n</script>\n";
-    
-    		putClock();
-    
+
+echo "<h4 class=\"ui red horizontal divider header\">";
+echo "<i class=\"file text icon\"></i>Your Rank</h4>";
 // Put overview of team submissions (like scoreboard)
 putTeamRow($cdata, array($teamid));
 
-echo "<div id=\"ui table segment\">\n";
+echo "<h3 class=\"ui horizontal divider header\"></h3>";
 
-echo "<h3 class=\"teamoverview\">Submissions</h3>\n\n";
+echo "<div class=\"ui two column middle aligned very relaxed stackable grid\">\n";
+echo "<div class=\"column\">\n";
+echo "<h4 class=\"ui teal horizontal divider header\">";
+echo "<i class=\"plus icon\"></i>Submissions</h4>";
 
+echo "<div class=\"ui container\"\n";
 
 if ( $fdata['cstarted'] || checkrole('jury') ) {
 	echo <<<HTML
-<script type="text/javascript">
-$(function() {
-	var matches = location.hash.match(/submitted=(\d+)/);
-	if (matches) {
-		var \$p = \$('<p class="submissiondone" />').html('submission done <a href="index.php"><i class="remove icon"</i></a>');
-		\$('#submitlist > .teamoverview').after(\$p);
-		\$('table.submissions tr[data-submission-id=' + matches[1] + ']').addClass('highlight');
 
-		\$('.submissiondone a').on('click', function() {
-			\$(this).parent().remove();
-			\$('table.submissions tr.highlight').removeClass('highlight');
-			reloadLocation = 'index.php';
-		});
-	}
-});
-</script>
 HTML;
 	$maxfiles = dbconfig_get('sourcefiles_limit',100);
 
@@ -95,11 +87,11 @@ HTML;
 	}
 	$langs[''] = 'language';
 	echo addSelect('langid', $langs, '', true);
-
-	echo addSubmit('submit', 'submit',
+	echo "<br><br>";
+	echo addSubmit('Submit', 'submit',
 		       "return checkUploadForm();");
 
-	echo addReset('cancel');
+	echo addReset('Cancel');
 
 	if ( $maxfiles > 1 ) {
 		echo "<br /><span id=\"auxfiles\"></span>\n" .
@@ -111,13 +103,16 @@ HTML;
 
 	echo "</p>\n</form>\n\n";
 }
+
 // call putSubmissions function from common.php for this team.
 $restrictions = array( 'teamid' => $teamid );
 putSubmissions(array($cdata['cid'] => $cdata), $restrictions, null, $submitted);
 
-echo "</div>\n\n";
+echo "</div>\n</div>\n";
 
-echo "<div class=\"ui table segment\">\n";
+echo "<div class=\"column\">";
+echo "<div class=\"ui container\"";
+echo "<div class=\"ui selectable celled table\">\n";
 
 $requests = $DB->q('SELECT c.*, cp.shortname, t.name AS toname, f.name AS fromname
                     FROM clarification c
@@ -141,28 +136,30 @@ $clarifications = $DB->q('SELECT c.*, cp.shortname, t.name AS toname, f.name AS 
                           ORDER BY c.submittime DESC, c.clarid DESC',
                          $teamid, $cid, $teamid);
 
-echo "<h3 class=\"teamoverview\">Clarifications</h3>\n";
+echo "<h4 class=\"ui blue horizontal divider header\">";
+echo "<i class=\"inbox icon\"></i>Clarifications</h4>";
 
-# FIXME: column width and wrapping/shortening of clarification text
 if ( $clarifications->count() == 0 ) {
-	echo "<p class=\"nodata\">No clarifications.</p>\n\n";
+	echo "<p>No clarifications.</p>\n\n";
 } else {
 	putClarificationList($clarifications,$teamid);
 }
 
-echo "<h3 class=\"teamoverview\">Clarification Requests</h3>\n";
+echo "<h4 class=\"ui blue horizontal divider header\">";
+echo "<i class=\"inbox icon\"></i>Clarification Requests</h4>";
 
 if ( $requests->count() == 0 ) {
-	echo "<p class=\"nodata\">No clarification requests.</p>\n\n";
+	echo "<p>No clarification requests.</p>\n\n";
 } else {
 	putClarificationList($requests,$teamid);
 }
 
 echo addForm('clarification.php','get') .
-	"<p>" . addSubmit('request clarification') . "</p>" .
+	"<p>" . addSubmit('Request Clarification') . "</p>" .
 	addEndForm();
 
 
-echo "</div>\n";
+echo "</div>\n</div>\n</div>\n</div>\n</div>\n";
 
 require(LIBWWWDIR . '/footer.php');
+
