@@ -3,7 +3,6 @@
  * Part of the DOMjudge Programming Contest Jury System and licenced
  * under the GNU GPL. See README and COPYING for details.
  */
-echo "<div class=\"ui container\"";
 
 require('init.php');
 $title = specialchars($teamdata['name']);
@@ -13,8 +12,6 @@ require(LIBWWWDIR . '/header.php');
 // cancel it when the user starts editing the submit form. This also
 // provides graceful degradation without javascript present.
 $refreshtime = 30;
-
-
 
 $submitted = @$_GET['submitted'];
 
@@ -46,21 +43,37 @@ echo "// -->\n</script>\n";
 
 echo "<h4 class=\"ui red horizontal divider header\">";
 echo "<i class=\"file text icon\"></i>Your Rank</h4>";
+echo "<div class=\"ui container\"\n";
 // Put overview of team submissions (like scoreboard)
 putTeamRow($cdata, array($teamid));
-
+echo "</div>";
+echo "<br>";
+echo "<div class=\"ui two column middle very relaxed stackable grid\">\n";
+echo "<div class=\"column\">\n";
+echo "<div class=\"ui container\"\n";
 echo "<h3 class=\"ui horizontal divider header\"></h3>";
 
-echo "<div class=\"ui two column middle aligned very relaxed stackable grid\">\n";
-echo "<div class=\"column\">\n";
 echo "<h4 class=\"ui teal horizontal divider header\">";
 echo "<i class=\"plus icon\"></i>Submissions</h4>";
 
-echo "<div class=\"ui container\"\n";
-
 if ( $fdata['cstarted'] || checkrole('jury') ) {
 	echo <<<HTML
+	<script type = "text/javascript">
+		$(function() {
+			var matches = location.hash.match(/submitted=(\d+)/);
+			if (matches) {
+				var \$p = \$('<p/>').html('submission done <a href="index.php">x</a>');
+				\$('#submitlist > .teamoverview').after(\$p);
+				\$('table.submissions tr[data-submission-id=' + matches[1] + ']').addClass('highlight');
 
+				\$('.submissiondone a').on('click', function() {
+					\$(this).parent().remove();
+					\$('table.submissions tr.highlight').removeClass('highlight');
+					reloadLocation = 'index.php';
+				});
+			}
+		});
+	</script>
 HTML;
 	$maxfiles = dbconfig_get('sourcefiles_limit',100);
 
@@ -73,8 +86,7 @@ HTML;
 		echo " multiple";
 	}
 	echo " />\n";
-
-
+	echo "<h4></h4>";
 	$probs = array();
 	foreach($probdata as $probinfo) {
 		$probs[$probinfo['probid']]=$probinfo['shortname'];
@@ -85,9 +97,10 @@ HTML;
 	foreach($langdata as $langid => $langdata) {
 		$langs[$langid] = $langdata['name'];
 	}
+	echo "<br>";
 	$langs[''] = 'language';
 	echo addSelect('langid', $langs, '', true);
-	echo "<br><br>";
+	echo "<br>";
 	echo addSubmit('Submit', 'submit',
 		       "return checkUploadForm();");
 
@@ -159,7 +172,7 @@ echo addForm('clarification.php','get') .
 	addEndForm();
 
 
-echo "</div>\n</div>\n</div>\n</div>\n</div>\n";
+echo "</div>\n</div>\n</div>\n</div>\n";
 
 require(LIBWWWDIR . '/footer.php');
 
