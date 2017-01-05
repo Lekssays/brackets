@@ -1,0 +1,4 @@
+1/ Open /etc/default/grub: sudo nano /etc/default/grub
+2/ Add this GRUB_CMDLINE_LINUX_DEFAULT="quiet cgroup_enable=memory swapaccount=1" in GRUB_CMDLINE_LINUX_DEFAULT line
+3/ update grub: update-grub 
+4/ reboot the machine and dont forget to run create_cgroup again from /opt/domjudge/judgehost/bin

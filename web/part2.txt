@@ -1,0 +1,6 @@
+type:
+mysql -u root -p toor
+and paste the following queries:
+1/ INSERT INTO user (userid, username, name, password, teamid) VALUES (3, 'dummy', 'dummy user for example team', MD5('dummy#dummy'), 2); 
+2/ INSERT INTO userrole (userid, roleid) VALUES (3, 2);
+3/ INSERT INTO userrole (userid, roleid) VALUES (3, 3); 

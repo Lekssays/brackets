@@ -1,0 +1,5 @@
+<?php
+	putBracketsVersion();
+?>
+</body>
+</html>
