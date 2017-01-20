@@ -3,3 +3,4 @@
 - Real time timer display.
 - CSS for text fields.
 - CSS for login page form.
+- Reload the verdict area (short delay).
