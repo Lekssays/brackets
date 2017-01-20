@@ -1,5 +1,5 @@
 # TODO List:
-- Displaying Contests Problems
-- Dynamic Timing
-- Fix Text Input
-- Login Page
+- Prettify problem statement view.
+- Real time timer display.
+- CSS for text fields.
+- CSS for login page form.
