@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <script src="functions.js" type="text/javascript" charset="utf-8" ></script>
+    <body>
+<div >
+<link rel="stylesheet" href="style/terminal.css">
+        <span>brackets@localhost:~$ </span>
+        <script>
+        var remote = require('electron').remote;
+        Compile("hi", "hi", remote.getGlobal('sharedObj').exec);
+         </script>
+</body>
+</html>
